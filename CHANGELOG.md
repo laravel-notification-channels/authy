@@ -1,7 +1,9 @@
 # Changelog
 
-All notable changes to `:package_name` will be documented in this file
+All notable changes to this project will be documented in this file.
 
-## 1.0.0 - 201X-XX-XX
+This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
-- initial release
+
+## v1.0.0 - 2016-10-15
+- Commit first draft
