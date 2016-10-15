@@ -8,7 +8,8 @@
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/laravel-notification-channels/authy.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/authy/)
 [![Code Climate](https://img.shields.io/codeclimate/github/laravel-notification-channels/authy.svg?label=CodeClimate&style=flat-square)](https://codeclimate.com/github/laravel-notification-channels/authy)
 [![StyleCI](https://styleci.io/repos/70840210/shield)](https://styleci.io/repos/70840210)
-[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/8abbcdb4-3508-4c8c-96f6-8033af35198e.svg?label=SensioLabs&style=flat-square)](https://insight.sensiolabs.com/projects/8abbcdb4-3508-4c8c-96f6-8033af35198e)
+[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/9fb954b8-d059-4198-bab9-8f8acb09ae4a.svg?label=SensioLabs&style=flat-square)](https://insight.sensiolabs.com/projects/9fb954b8-d059-4198-bab9-8f8acb09ae4a)
+[![Travis](https://img.shields.io/travis/laravel-notification-channels/authy.svg?style=flat-square)](https://travis-ci.org/laravel-notification-channels/authy)
 
 
 ## Table Of Contents
@@ -53,7 +54,7 @@
 
     > **Note:** make sure to replace `AuthyProductionKeyHere` & `AuthySandboxKeyHere` with your keys from the previous step
 
-5. To route Authy notifications to the proper user, define a `routeNotificationForAuthy` method on your notifiable entity. This should return the **Authy Id** to which the notification should be sent. Example:
+5. To route Authy notifications to the proper entity, define a `routeNotificationForAuthy` method on your notifiable entity. This should return the **Authy Id** to which the notification should be sent. Example:
 
     ```php
     /**
