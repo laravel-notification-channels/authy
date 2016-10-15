@@ -33,7 +33,7 @@ class ChannelTest extends TestCase
         $this->app['config']->set('services.authy.keys.production', 'AuthyKey');
 
         $response = new Response(200, [], json_encode(['success' => false]));
-        $client = Mockery::mock(HttpClient::class);
+        $client   = Mockery::mock(HttpClient::class);
         $client->shouldReceive('get')
                ->once()
                ->with('https://api.authy.com/protected/json/sms/12345?api_key=AuthyKey')
@@ -47,7 +47,7 @@ class ChannelTest extends TestCase
     {
         $this->expectException(InvalidConfiguration::class);
 
-        $client = new HttpClient();
+        $client  = new HttpClient();
         $channel = new AuthyChannel($client);
         $channel->send(new TestNotifiable(), new TestNotification());
     }

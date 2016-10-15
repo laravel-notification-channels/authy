@@ -59,7 +59,7 @@ class AuthyChannel
     /**
      * Create a new Slack channel instance.
      *
-     * @param  \GuzzleHttp\Client $http
+     * @param \GuzzleHttp\Client $http
      *
      * @throws \NotificationChannels\Authy\Exceptions\InvalidConfiguration
      *
