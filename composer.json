@@ -1,14 +1,39 @@
 {
-    "name": "laravel-notification-channels/:package_name",
-    "description": ":package_description",
-    "homepage": "https://github.com/laravel-notification-channels/:package_name",
+    "name": "laravel-notification-channels/authy",
+    "description": "Authy notification channel for Laravel, with the ability to send in-app, sms, and call verification tokens.",
+    "keywords": [
+        "sms",
+        "call",
+        "authy",
+        "laravel",
+        "verification",
+        "rinvex",
+        "phone",
+        "token"
+    ],
     "license": "MIT",
+    "homepage": "https://rinvex.com",
+    "support": {
+        "email": "help@rinvex.com",
+        "issues": "https://github.com/laravel-notification-channels/authy/issues",
+        "source": "https://github.com/laravel-notification-channels/authy",
+        "docs": "https://github.com/laravel-notification-channels/authy/blob/master/README.md"
+    },
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": ":author_website",
-            "role": "Developer"
+            "name": "Rinvex LLC",
+            "homepage": "https://rinvex.com",
+            "email": "help@rinvex.com"
+        },
+        {
+            "name": "Abdelrahman Omran",
+            "homepage": "https://omranic.com",
+            "email": "me@omranic.com",
+            "role": "Project Lead"
+        },
+        {
+            "name": "The Generous Laravel Community",
+            "homepage": "https://github.com/laravel-notification-channels/authy/contributors"
         }
     ],
     "require": {
@@ -22,12 +47,12 @@
     },
     "autoload": {
         "psr-4": {
-            "NotificationChannels\\:channel_namespace\\": "src"
+            "NotificationChannels\\Authy\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "NotificationChannels\\:channel_namespace\\Test\\": "tests"
+            "NotificationChannels\\Authy\\Test\\": "tests"
         }
     },
     "scripts": {
