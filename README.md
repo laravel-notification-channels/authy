@@ -8,7 +8,7 @@
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/laravel-notification-channels/authy.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/authy/)
 [![Code Climate](https://img.shields.io/codeclimate/github/laravel-notification-channels/authy.svg?label=CodeClimate&style=flat-square)](https://codeclimate.com/github/laravel-notification-channels/authy)
 [![StyleCI](https://styleci.io/repos/70840210/shield)](https://styleci.io/repos/70840210)
-[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/e361e7c2-c0ae-469d-8a53-6a2433e7aaad.svg?label=SensioLabs&style=flat-square)](https://insight.sensiolabs.com/projects/e361e7c2-c0ae-469d-8a53-6a2433e7aaad)
+[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/8abbcdb4-3508-4c8c-96f6-8033af35198e.svg?label=SensioLabs&style=flat-square)](https://insight.sensiolabs.com/projects/8abbcdb4-3508-4c8c-96f6-8033af35198e)
 
 
 ## Table Of Contents
