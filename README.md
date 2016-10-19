@@ -68,7 +68,7 @@
     }
     ```
 
-    > **Note:** as you might thought, this requires a `authy_id` attribute in your notifiable entity, which may require additional field in the database table as well.
+    > **Note:** as you might thought, this requires an `authy_id` attribute in your notifiable entity, for which you may need to create an additional field in the database table.
 
 6. Now you can create notifications that use Authy channel as follows:
 
@@ -91,7 +91,7 @@
         public $force;
 
         /**
-         * The notification method (sms/call).
+         * The notification method ("sms" or "call").
          *
          * @var string
          */
