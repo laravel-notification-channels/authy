@@ -21,7 +21,7 @@
 - [About Rinvex](#about-rinvex)
 - [License](#license)
 
-![Authy App & SMS Notifications](https://rinvex.com/assets/frontend/layout/img/products/laravel-notification-channels-authy.png "Authy App & SMS Notification")
+![Authy Notifications](https://rinvex.com/assets/frontend/layout/img/products/laravel-notification-channels-authy.png "Authy Notification")
 
 
 ## Usage
