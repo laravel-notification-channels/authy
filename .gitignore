@@ -1,5 +1,4 @@
 build
-/vendor
-/node_modules
+vendor
 composer.phar
 composer.lock
