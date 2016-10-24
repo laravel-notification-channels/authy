@@ -31,24 +31,11 @@ class AuthyMessage
     /**
      * Indicate that the notification is forced over cellphone network.
      *
-     *
      * @return $this
      */
     public function force()
     {
         $this->force = true;
-
-        return $this;
-    }
-
-    /**
-     * Indicate that the notification is not forced over cellphone network.
-     *
-     * @return $this
-     */
-    public function doNotForce()
-    {
-        $this->force = false;
 
         return $this;
     }
