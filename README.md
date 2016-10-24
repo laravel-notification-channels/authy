@@ -3,7 +3,6 @@
 [Authy](https://www.authy.com) notification channel for [Laravel](https://laravel.com/), with the ability to send in-app, sms, and call verification tokens.
 
 [![Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/authy.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/laravel-notification-channels/authy)
-
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/laravel-notification-channels/authy.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/authy/)
 [![Code Climate](https://img.shields.io/codeclimate/github/laravel-notification-channels/authy.svg?label=CodeClimate&style=flat-square)](https://codeclimate.com/github/laravel-notification-channels/authy)
 [![StyleCI](https://styleci.io/repos/70840210/shield?branch=master)](https://styleci.io/repos/70840210)
