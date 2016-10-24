@@ -57,7 +57,7 @@ class MessageTest extends PHPUnit_Framework_TestCase
     {
         $this->message->doNotForce();
 
-        $this->assertEquals(force, $this->message->force);
+        $this->assertEquals(false, $this->message->force);
     }
 
     /** @test */
