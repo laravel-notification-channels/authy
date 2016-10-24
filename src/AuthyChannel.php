@@ -1,18 +1,5 @@
 <?php
 
-/*
- * NOTICE OF LICENSE
- *
- * Part of the Authy Notification Channel for Laravel Package.
- *
- * This source file is subject to The MIT License (MIT)
- * that is bundled with this package in the LICENSE file.
- *
- * Package: Authy Notification Channel for Laravel Package
- * License: The MIT License (MIT)
- * Link:    https://rinvex.com
- */
-
 namespace NotificationChannels\Authy;
 
 use GuzzleHttp\Client as HttpClient;
@@ -62,21 +49,19 @@ class AuthyChannel
      * @param \GuzzleHttp\Client $http
      *
      * @throws \NotificationChannels\Authy\Exceptions\InvalidConfiguration
-     *
-     * @return void
      */
     public function __construct(HttpClient $http)
     {
         $this->http = $http;
 
         // Prepare required data
-        $mode      = config('services.authy.mode');
+        $mode = config('services.authy.mode');
         $this->key = config('services.authy.keys.'.$mode);
         $this->api = $mode === 'sandbox' ? static::API_ENDPOINT_SANDBOX : static::API_ENDPOINT_PRODUCTION;
 
         // Check configuration
         if (! $mode || ! $this->key) {
-            throw new InvalidConfiguration();
+            throw InvalidConfiguration::missingCredentials();
         }
     }
 
@@ -98,7 +83,7 @@ class AuthyChannel
 
         // Prepare required data
         $force = $message->force ? '&force=true' : '';
-        $url   = $this->api.'/protected/json/'.$message->method.'/'.$authyId.'?api_key='.$this->key.$force;
+        $url = $this->api.'/protected/json/'.$message->method.'/'.$authyId.'?api_key='.$this->key.$force;
 
         // Send Authy notification
         $response = json_decode($this->http->get($url)->getBody(), true);

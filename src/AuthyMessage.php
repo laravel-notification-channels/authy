@@ -1,18 +1,5 @@
 <?php
 
-/*
- * NOTICE OF LICENSE
- *
- * Part of the Authy Notification Channel for Laravel Package.
- *
- * This source file is subject to The MIT License (MIT)
- * that is bundled with this package in the LICENSE file.
- *
- * Package: Authy Notification Channel for Laravel Package
- * License: The MIT License (MIT)
- * Link:    https://rinvex.com
- */
-
 namespace NotificationChannels\Authy;
 
 class AuthyMessage
@@ -44,13 +31,24 @@ class AuthyMessage
     /**
      * Indicate that the notification is forced over cellphone network.
      *
-     * @param bool $force
      *
      * @return $this
      */
-    public function force($force)
+    public function force()
     {
-        $this->force = $force;
+        $this->force = true;
+
+        return $this;
+    }
+
+    /**
+     * Indicate that the notification is not forced over cellphone network.
+     *
+     * @return $this
+     */
+    public function doNotForce()
+    {
+        $this->force = false;
 
         return $this;
     }

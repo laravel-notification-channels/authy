@@ -39,16 +39,24 @@ class MessageTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
+    public function it_has_default_tokens_not_forced_over_cellphone_network()
+    {
+        $this->assertEquals(false, $this->message->force);
+    }
+
+    /** @test */
     public function it_can_force_the_token_over_cellphone_network()
     {
-        $this->message->force(true);
+        $this->message->force();
 
         $this->assertEquals(true, $this->message->force);
     }
 
     /** @test */
-    public function it_has_default_tokens_not_forced_over_cellphone_network()
+    public function it_can_avoid_forcing_the_token_over_cellphone_network()
     {
+        $this->message->doNotForce();
+
         $this->assertEquals(false, $this->message->force);
     }
 
