@@ -21,6 +21,8 @@
 - [About Rinvex](#about-rinvex)
 - [License](#license)
 
+![Authy Notifications](https://rinvex.com/assets/frontend/layout/img/products/laravel-notification-channels-authy.png "Authy Notification")
+
 
 ## Usage
 
@@ -67,7 +69,7 @@
     }
     ```
 
-    > **Note:** as you might thought, this requires a `authy_id` attribute in your notifiable entity, which may require additional field in the database table as well.
+    > **Note:** as you might thought, this requires an `authy_id` attribute in your notifiable entity, for which you may need to create an additional field in the database table.
 
 6. Now you can create notifications that use Authy channel as follows:
 
@@ -80,36 +82,36 @@
     use NotificationChannels\Authy\AuthyChannel;
     use NotificationChannels\Authy\AuthyMessage;
 
-    class PhoneVerificationNotification extends Notification
+    class PhoneVerificationRequestNotification extends Notification
     {
-        /**
-         * Determine whether to force the notification over cellphone network.
-         *
-         * @var bool
-         */
-        public $force;
-
         /**
          * The notification method (sms/call).
          *
          * @var string
          */
         public $method;
-
+    
+        /**
+         * Determine whether to force the notification over cellphone network.
+         *
+         * @var bool
+         */
+        public $force;
+    
         /**
          * Create a notification instance.
          *
-         * @param bool   $force
          * @param string $method
+         * @param bool   $force
          *
          * @return void
          */
-        public function __construct($force, $method)
+        public function __construct($method = 'sms', $force = false)
         {
-            $this->force  = $force;
             $this->method = $method;
+            $this->force  = $force;
         }
-
+    
         /**
          * Get the notification's channels.
          *
@@ -121,7 +123,7 @@
         {
             return [AuthyChannel::class];
         }
-
+    
         /**
          * Build the mail representation of the notification.
          *
@@ -129,7 +131,13 @@
          */
         public function toAuthy()
         {
-            return AuthyMessage::create()->method($this->method)->force($this->force);
+            $message = AuthyMessage::create()->method($this->method);
+    
+            if ($this->force) {
+                $message->force();
+            }
+    
+            return $message;
         }
     }
     ```
@@ -137,7 +145,7 @@
 7. Finally you can consume the notification as follows:
 
     ```php
-    $this->notify(new \App\Notifications\PhoneVerificationNotification(true, 'sms'));
+    $this->notify(new \App\Notifications\PhoneVerificationNotification('sms', true));
     ```
 
     > **Note:** don't forget to read through [Authy TOTP API](https://docs.authy.com/totp.html) documentation for further information.

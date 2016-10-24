@@ -53,14 +53,6 @@ class MessageTest extends PHPUnit_Framework_TestCase
     }
 
     /** @test */
-    public function it_can_avoid_forcing_the_token_over_cellphone_network()
-    {
-        $this->message->doNotForce();
-
-        $this->assertEquals(false, $this->message->force);
-    }
-
-    /** @test */
     public function it_can_set_token_sending_method()
     {
         $this->message->method('call');
