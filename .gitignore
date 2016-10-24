@@ -1,4 +1,4 @@
-.build
+build
 /vendor
 /node_modules
 composer.phar
