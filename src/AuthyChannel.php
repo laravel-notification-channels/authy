@@ -55,7 +55,7 @@ class AuthyChannel
         $this->http = $http;
 
         // Prepare required data
-        $mode      = config('services.authy.mode');
+        $mode = config('services.authy.mode');
         $this->key = config('services.authy.keys.'.$mode);
         $this->api = $mode === 'sandbox' ? static::API_ENDPOINT_SANDBOX : static::API_ENDPOINT_PRODUCTION;
 
@@ -83,7 +83,7 @@ class AuthyChannel
 
         // Prepare required data
         $force = $message->force ? '&force=true' : '';
-        $url   = $this->api.'/protected/json/'.$message->method.'/'.$authyId.'?api_key='.$this->key.$force;
+        $url = $this->api.'/protected/json/'.$message->method.'/'.$authyId.'?api_key='.$this->key.$force;
 
         // Send Authy notification
         $response = json_decode($this->http->get($url)->getBody(), true);
