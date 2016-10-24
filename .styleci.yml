@@ -1,13 +1,3 @@
-preset: recommended
-risky: false
+preset: laravel
+
 linting: true
-
-enabled:
-  - not_operator_with_successor_space
-  - no_short_echo_tag
-  - align_equals
-
-disabled:
-  - ordered_imports
-  - phpdoc_no_package
-  - unalign_equals

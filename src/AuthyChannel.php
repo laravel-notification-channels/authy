@@ -1,18 +1,5 @@
 <?php
 
-/*
- * NOTICE OF LICENSE
- *
- * Part of the Authy Notification Channel for Laravel Package.
- *
- * This source file is subject to The MIT License (MIT)
- * that is bundled with this package in the LICENSE file.
- *
- * Package: Authy Notification Channel for Laravel Package
- * License: The MIT License (MIT)
- * Link:    https://rinvex.com
- */
-
 namespace NotificationChannels\Authy;
 
 use GuzzleHttp\Client as HttpClient;
@@ -62,8 +49,6 @@ class AuthyChannel
      * @param \GuzzleHttp\Client $http
      *
      * @throws \NotificationChannels\Authy\Exceptions\InvalidConfiguration
-     *
-     * @return void
      */
     public function __construct(HttpClient $http)
     {
@@ -76,7 +61,7 @@ class AuthyChannel
 
         // Check configuration
         if (! $mode || ! $this->key) {
-            throw new InvalidConfiguration();
+            throw InvalidConfiguration::missingCredentials();
         }
     }
 
