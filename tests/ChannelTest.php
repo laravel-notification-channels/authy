@@ -55,6 +55,20 @@ class ChannelTest extends TestCase
 
         $this->assertTrue($result);
     }
+
+    /** @test */
+    public function it_returns_false_when_sending_notification_but_missing_authyid()
+    {
+        $this->app['config']->set('services.authy.mode', 'production');
+        $this->app['config']->set('services.authy.keys.production', 'AuthyKey');
+
+        $client = Mockery::mock(HttpClient::class);
+        $authyToken = new AuthyToken($client, config('services.authy.keys.production'), config('services.authy.mode'));
+        $channel = new AuthyChannel($authyToken);
+        $result = $channel->send(new TestInvalidNotifiable(), new TestNotification());
+
+        $this->assertFalse($result);
+    }
 }
 
 class TestNotifiable
@@ -67,6 +81,19 @@ class TestNotifiable
     public function routeNotificationForAuthy()
     {
         return 12345;
+    }
+}
+
+class TestInvalidNotifiable
+{
+    use \Illuminate\Notifications\Notifiable;
+
+    /**
+     * @return int
+     */
+    public function routeNotificationForAuthy()
+    {
+        return;
     }
 }
 
