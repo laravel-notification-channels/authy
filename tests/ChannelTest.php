@@ -89,11 +89,11 @@ class TestInvalidNotifiable
     use \Illuminate\Notifications\Notifiable;
 
     /**
-     * @return int
+     * @return null
      */
     public function routeNotificationForAuthy()
     {
-        return;
+        return null;
     }
 }
 
