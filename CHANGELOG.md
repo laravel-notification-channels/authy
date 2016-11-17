@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## v0.0.5 - 2016-11-17
+- Fix and tweak documentation
+
 ## v0.0.4 - 2016-11-17
 - Separate concerns, and push Authy API functions to its own package
 

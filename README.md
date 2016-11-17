@@ -1,16 +1,17 @@
 # Authy Notification Channel for Laravel
 
-@Authy notification channel for @Laravel, with the ability to send in-app, sms, and call verification tokens.
-
-![Authy Notifications](https://rinvex.com/assets/frontend/layout/img/products/laravel-notification-channels-authy.png "Authy Notification")
+[Authy](https://www.authy.com) notification channel for [Laravel](https://laravel.com), with the ability to send in-app, sms, and call verification tokens.
 
 [![Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/authy.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/laravel-notification-channels/authy)
+[![VersionEye Dependencies](https://img.shields.io/versioneye/d/php/laravel-notification-channels:authy.svg?label=Dependencies&style=flat-square)](https://www.versioneye.com/php/laravel-notification-channels:authy/)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/laravel-notification-channels/authy.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/authy/)
 [![Code Climate](https://img.shields.io/codeclimate/github/laravel-notification-channels/authy.svg?label=CodeClimate&style=flat-square)](https://codeclimate.com/github/laravel-notification-channels/authy)
 [![StyleCI](https://styleci.io/repos/70840210/shield?branch=master)](https://styleci.io/repos/70840210)
 [![SensioLabs Insight](https://img.shields.io/sensiolabs/i/9fb954b8-d059-4198-bab9-8f8acb09ae4a.svg?label=SensioLabs&style=flat-square)](https://insight.sensiolabs.com/projects/9fb954b8-d059-4198-bab9-8f8acb09ae4a)
 [![Travis](https://img.shields.io/travis/laravel-notification-channels/authy.svg?style=flat-square)](https://travis-ci.org/laravel-notification-channels/authy)
 [![License](https://img.shields.io/packagist/l/laravel-notification-channels/authy.svg?label=License&style=flat-square)](https://github.com/laravel-notification-channels/authy/blob/develop/LICENSE)
+
+![Authy Notifications](https://rinvex.com/assets/frontend/layout/img/products/laravel-notification-channels-authy.png "Authy Notification")
 
 
 ## Table Of Contents
@@ -21,9 +22,8 @@
 - [Contributing & Protocols](#contributing--protocols)
 - [Security Vulnerabilities](#security-vulnerabilities)
 - [About Rinvex](#about-rinvex)
+- [Trademarks](#trademarks)
 - [License](#license)
-
-![Authy Notifications](https://rinvex.com/assets/frontend/layout/img/products/laravel-notification-channels-authy.png "Authy Notification")
 
 
 ## Usage
@@ -33,31 +33,9 @@
     composer require laravel-notification-channels/authy
     ```
 
-2. If you don't have the following lines already, add it to your `config/services.php` file, before the end of the array:
+2. This package requires [`rinvex/laravel-authy`](https://github.com/rinvex/laravel-authy) package, so before proceeding make sure to followup it's [installation](https://github.com/rinvex/laravel-authy#installation) steps first.
 
-    ```php
-    'authy' => [
-        'mode' => env('AUTHY_MODE'),
-        'keys' => [
-            'production' => env('AUTHY_PRODUCTION_KEY'),
-            'sandbox' => env('AUTHY_SANDBOX_KEY'),
-        ],
-    ],
-    ```
-
-3. If you haven't already: Register an [Authy](https://www.authy.com) account -> Sign in -> Access [dashboard](https://dashboard.authy.com) -> Create new application -> Copy your API keys (you've two keys, one for production & another for testing/sandbox)
-
-4. If you don't have the following lines already, add it to your project's `.env` file, at the end:
-
-    ```ini
-    AUTHY_MODE=production
-    AUTHY_PRODUCTION_KEY=AuthyProductionKeyHere
-    AUTHY_SANDBOX_KEY=AuthySandboxKeyHere
-    ```
-
-    > **Note:** make sure to replace `AuthyProductionKeyHere` & `AuthySandboxKeyHere` with your keys from the previous step.
-
-5. To route Authy notifications to the proper entity, define a `routeNotificationForAuthy` method on your notifiable entity. This should return the **Authy Id** to which the notification should be sent. Example:
+3. Next, to route Authy notifications to the proper entity, define a `routeNotificationForAuthy` method on your notifiable entity. This should return the **Authy Id** to which the notification should be sent. Example:
 
     ```php
     /**
@@ -73,7 +51,7 @@
 
     > **Note:** as you might thought, this requires an `authy_id` attribute in your notifiable entity, for which you may need to create an additional field in the database table.
 
-6. Now you can create notifications that use Authy channel as follows:
+4. Now you can create notifications that use Authy channel as follows:
 
     ```php
     // app/Notifications/PhoneVerificationNotification.php
@@ -170,7 +148,7 @@
     }
     ```
 
-7. Finally you can consume the notification as follows:
+5. Finally you can consume the notification as follows:
 
     ```php
     $this->notify(new \App\Notifications\PhoneVerificationNotification('sms', true));
@@ -178,7 +156,7 @@
 
     > **Note:** don't forget to read through [Authy TOTP API](https://docs.authy.com/totp.html) documentation for further information.
 
-8. Done!
+6. Done!
 
 
 ## Changelog
@@ -214,6 +192,12 @@ If you discover a security vulnerability within this project, please send an e-m
 ## About Rinvex
 
 Rinvex is a software solutions startup, specialized in integrated enterprise solutions for SMEs established in Alexandria, Egypt since June 2016. We believe that our drive The Value, The Reach, and The Impact is what differentiates us and unleash the endless possibilities of our philosophy through the power of software. We like to call it Innovation At The Speed Of Life. That’s how we do our share of advancing humanity.
+
+
+## Trademarks
+
+- [Authy™](https://www.authy.com) is a trademark of [Twilio Inc.](https://www.twilio.com)
+- [Laravel™](https://laravel.com) is a trademark of [TAYLOR OTWELL](http://taylorotwell.com)
 
 
 ## License
