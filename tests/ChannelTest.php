@@ -19,10 +19,10 @@ use Mockery;
 use GuzzleHttp\Psr7\Response;
 use Orchestra\Testbench\TestCase;
 use GuzzleHttp\Client as HttpClient;
+use Rinvex\Authy\Token as AuthyToken;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\Authy\AuthyChannel;
 use NotificationChannels\Authy\AuthyMessage;
-use NotificationChannels\Authy\Exceptions\InvalidConfiguration;
 
 class ChannelTest extends TestCase
 {
@@ -32,24 +32,28 @@ class ChannelTest extends TestCase
         $this->app['config']->set('services.authy.mode', 'production');
         $this->app['config']->set('services.authy.keys.production', 'AuthyKey');
 
-        $response = new Response(200, [], json_encode(['success' => false]));
         $client = Mockery::mock(HttpClient::class);
+        $url = 'https://api.authy.com/protected/json/sms/12345';
+        $response = new Response(200, [], json_encode(['success' => true]));
+        $params = [
+            'http_errors' => false,
+            'headers'     => ['X-Authy-API-Key' => 'AuthyKey'],
+            'query'       => [
+                'force'         => false,
+                'action'        => null,
+                'actionMessage' => null
+            ]
+        ];
         $client->shouldReceive('get')
                ->once()
-               ->with('https://api.authy.com/protected/json/sms/12345?api_key=AuthyKey')
+               ->with($url, $params)
                ->andReturn($response);
-        $channel = new AuthyChannel($client);
-        $channel->send(new TestNotifiable(), new TestNotification());
-    }
 
-    /** @test */
-    public function it_throws_an_exception_when_it_is_not_configured()
-    {
-        $this->expectException(InvalidConfiguration::class);
+        $authyToken = new AuthyToken($client, config('services.authy.keys.production'), config('services.authy.mode'));
+        $channel = new AuthyChannel($authyToken);
+        $result = $channel->send(new TestNotifiable(), new TestNotification());
 
-        $client = new HttpClient();
-        $channel = new AuthyChannel($client);
-        $channel->send(new TestNotifiable(), new TestNotification());
+        $this->assertTrue($result);
     }
 }
 

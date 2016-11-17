@@ -19,6 +19,20 @@ class AuthyMessage
     public $force = false;
 
     /**
+     * The notification message action.
+     *
+     * @var string
+     */
+    public $action;
+
+    /**
+     * The notification message action message.
+     *
+     * @var string
+     */
+    public $actionMessage;
+
+    /**
      * Create a new Authy message instance.
      *
      * @return static
@@ -50,6 +64,34 @@ class AuthyMessage
     public function force()
     {
         $this->force = true;
+
+        return $this;
+    }
+
+    /**
+     * Set the notification action.
+     *
+     * @param string $action
+     *
+     * @return $this
+     */
+    public function action($action)
+    {
+        $this->action = $action;
+
+        return $this;
+    }
+
+    /**
+     * Set the notification action message.
+     *
+     * @param string $actionMessage
+     *
+     * @return $this
+     */
+    public function actionMessage($actionMessage)
+    {
+        $this->actionMessage = $actionMessage;
 
         return $this;
     }

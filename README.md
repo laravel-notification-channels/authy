@@ -1,6 +1,8 @@
 # Authy Notification Channel for Laravel
 
-[Authy](https://www.authy.com) notification channel for [Laravel](https://laravel.com/), with the ability to send in-app, sms, and call verification tokens.
+@Authy notification channel for @Laravel, with the ability to send in-app, sms, and call verification tokens.
+
+![Authy Notifications](https://rinvex.com/assets/frontend/layout/img/products/laravel-notification-channels-authy.png "Authy Notification")
 
 [![Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/authy.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/laravel-notification-channels/authy)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/laravel-notification-channels/authy.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/authy/)
@@ -13,7 +15,7 @@
 
 ## Table Of Contents
 
-- [Installation](#usage)
+- [Usage](#usage)
 - [Changelog](#changelog)
 - [Support](#support)
 - [Contributing & Protocols](#contributing--protocols)
@@ -31,7 +33,7 @@
     composer require laravel-notification-channels/authy
     ```
 
-2. Add the following lines to your `config/services.php` file, before the end of the array:
+2. If you don't have the following lines already, add it to your `config/services.php` file, before the end of the array:
 
     ```php
     'authy' => [
@@ -43,9 +45,9 @@
     ],
     ```
 
-3. If you haven't already: Register an Authy account -> Sign in -> Access dashboard -> Create new application -> Copy your API keys (you've two keys, one for production & another for testing/sandbox)
+3. If you haven't already: Register an [Authy](https://www.authy.com) account -> Sign in -> Access [dashboard](https://dashboard.authy.com) -> Create new application -> Copy your API keys (you've two keys, one for production & another for testing/sandbox)
 
-4. Inside your project's `.env` file past the following:
+4. If you don't have the following lines already, add it to your project's `.env` file, at the end:
 
     ```ini
     AUTHY_MODE=production
@@ -53,7 +55,7 @@
     AUTHY_SANDBOX_KEY=AuthySandboxKeyHere
     ```
 
-    > **Note:** make sure to replace `AuthyProductionKeyHere` & `AuthySandboxKeyHere` with your keys from the previous step
+    > **Note:** make sure to replace `AuthyProductionKeyHere` & `AuthySandboxKeyHere` with your keys from the previous step.
 
 5. To route Authy notifications to the proper entity, define a `routeNotificationForAuthy` method on your notifiable entity. This should return the **Authy Id** to which the notification should be sent. Example:
 
@@ -82,7 +84,7 @@
     use NotificationChannels\Authy\AuthyChannel;
     use NotificationChannels\Authy\AuthyMessage;
 
-    class PhoneVerificationRequestNotification extends Notification
+    class PhoneVerificationNotification extends Notification
     {
         /**
          * The notification method (sms/call).
@@ -99,17 +101,35 @@
         public $force;
     
         /**
+         * The notification message action.
+         *
+         * @var string
+         */
+        public $action;
+    
+        /**
+         * The notification message action message.
+         *
+         * @var string
+         */
+        public $actionMessage;
+    
+        /**
          * Create a notification instance.
          *
          * @param string $method
          * @param bool   $force
+         * @param string $action
+         * @param string $actionMessage
          *
          * @return void
          */
-        public function __construct($method = 'sms', $force = false)
+        public function __construct($method = 'sms', $force = false, $action = null, $actionMessage = null)
         {
             $this->method = $method;
-            $this->force  = $force;
+            $this->force = $force;
+            $this->action = $action;
+            $this->actionMessage = $actionMessage;
         }
     
         /**
@@ -125,7 +145,7 @@
         }
     
         /**
-         * Build the mail representation of the notification.
+         * Build the Authy representation of the notification.
          *
          * @return \NotificationChannels\Authy\AuthyMessage
          */
@@ -136,7 +156,15 @@
             if ($this->force) {
                 $message->force();
             }
-    
+
+            if ($this->action) {
+                $message->action($action);
+            }
+
+            if ($this->actionMessage) {
+                $message->actionMessage($actionMessage);
+            }
+
             return $message;
         }
     }
