@@ -41,8 +41,8 @@ class ChannelTest extends TestCase
             'query'       => [
                 'force'         => false,
                 'action'        => null,
-                'actionMessage' => null
-            ]
+                'actionMessage' => null,
+            ],
         ];
         $client->shouldReceive('get')
                ->once()
