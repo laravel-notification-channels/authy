@@ -2,67 +2,26 @@
 
 namespace NotificationChannels\Authy;
 
-use GuzzleHttp\Client as HttpClient;
+use Rinvex\Authy\Token as AuthyToken;
 use Illuminate\Notifications\Notification;
-use NotificationChannels\Authy\Exceptions\InvalidConfiguration;
 
 class AuthyChannel
 {
     /**
-     * The Authy production API endpoint.
+     * The Authy token instance.
      *
-     * @var string
+     * @var \Rinvex\Authy\Token
      */
-    const API_ENDPOINT_PRODUCTION = 'https://api.authy.com';
+    protected $authyToken;
 
     /**
-     * The Authy sandbox API endpoint.
+     * Create a new Authy channel instance.
      *
-     * @var string
+     * @param \Rinvex\Authy\Token $authyToken
      */
-    const API_ENDPOINT_SANDBOX = 'http://sandbox-api.authy.com';
-
-    /**
-     * The HTTP client instance.
-     *
-     * @var \GuzzleHttp\Client
-     */
-    protected $http;
-
-    /**
-     * The Authy service key.
-     *
-     * @var string
-     */
-    protected $key;
-
-    /**
-     * The Authy service API endpoint.
-     *
-     * @var string
-     */
-    protected $api;
-
-    /**
-     * Create a new Slack channel instance.
-     *
-     * @param \GuzzleHttp\Client $http
-     *
-     * @throws \NotificationChannels\Authy\Exceptions\InvalidConfiguration
-     */
-    public function __construct(HttpClient $http)
+    public function __construct(AuthyToken $authyToken)
     {
-        $this->http = $http;
-
-        // Prepare required data
-        $mode = config('services.authy.mode');
-        $this->key = config('services.authy.keys.'.$mode);
-        $this->api = $mode === 'sandbox' ? static::API_ENDPOINT_SANDBOX : static::API_ENDPOINT_PRODUCTION;
-
-        // Check configuration
-        if (! $mode || ! $this->key) {
-            throw InvalidConfiguration::missingCredentials();
-        }
+        $this->authyToken = $authyToken;
     }
 
     /**
@@ -79,15 +38,12 @@ class AuthyChannel
             return false;
         }
 
+        // Prepare notification message
         $message = $notification->toAuthy($notifiable);
 
-        // Prepare required data
-        $force = $message->force ? '&force=true' : '';
-        $url = $this->api.'/protected/json/'.$message->method.'/'.$authyId.'?api_key='.$this->key.$force;
+        // Send Authy notification and get the result
+        $result = $this->authyToken->send($authyId, $message->method, $message->force, $message->action, $message->actionMessage);
 
-        // Send Authy notification
-        $response = json_decode($this->http->get($url)->getBody(), true);
-
-        return isset($response['success']) && $response['success'];
+        return $result->succeed();
     }
 }
