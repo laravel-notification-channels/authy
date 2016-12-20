@@ -19,7 +19,7 @@ use Mockery;
 use PHPUnit_Framework_TestCase;
 use Rinvex\Authy\Token as AuthyToken;
 use Illuminate\Notifications\Notification;
-use \Rinvex\Authy\Response as AuthyResponse;
+use Rinvex\Authy\Response as AuthyResponse;
 use NotificationChannels\Authy\AuthyChannel;
 use NotificationChannels\Authy\AuthyMessage;
 use GuzzleHttp\Psr7\Response as HttpResponse;
