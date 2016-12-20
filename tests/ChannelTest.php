@@ -29,15 +29,14 @@ class ChannelTest extends TestCase
     /** @test */
     public function it_can_send_a_notification()
     {
-        $this->app['config']->set('services.authy.mode', 'production');
-        $this->app['config']->set('services.authy.keys.production', 'AuthyKey');
+        $this->app['config']->set('services.authy.secret', 'AuthySecretKey');
 
         $client = Mockery::mock(HttpClient::class);
         $url = 'https://api.authy.com/protected/json/sms/12345';
         $response = new Response(200, [], json_encode(['success' => true]));
         $params = [
             'http_errors' => false,
-            'headers'     => ['X-Authy-API-Key' => 'AuthyKey'],
+            'headers'     => ['X-Authy-API-Key' => 'AuthySecretKey'],
             'query'       => [
                 'force'         => false,
                 'action'        => null,
@@ -49,7 +48,7 @@ class ChannelTest extends TestCase
                ->with($url, $params)
                ->andReturn($response);
 
-        $authyToken = new AuthyToken($client, config('services.authy.keys.production'), config('services.authy.mode'));
+        $authyToken = new AuthyToken($client, config('services.authy.secret'));
         $channel = new AuthyChannel($authyToken);
         $result = $channel->send(new TestNotifiable(), new TestNotification());
 
