@@ -17,6 +17,7 @@
 ## Table Of Contents
 
 - [Usage](#usage)
+- [Upgrade](#upgrade)
 - [Changelog](#changelog)
 - [Support](#support)
 - [Contributing & Protocols](#contributing--protocols)
@@ -157,6 +158,13 @@
     > **Note:** don't forget to read through [Authy TOTP API](https://docs.authy.com/totp.html) documentation for further information.
 
 6. Done!
+
+
+## Upgrade
+
+- **Upgrading To `v2.x` From `v1.x`**
+
+  API implementation is 100% backword compatible, but sandbox API has been dropped since it's officially deprecated. Also note that PHP7 is now required.
 
 
 ## Changelog
