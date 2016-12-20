@@ -16,39 +16,31 @@
 namespace NotificationChannels\Authy\Test;
 
 use Mockery;
-use GuzzleHttp\Psr7\Response;
-use Orchestra\Testbench\TestCase;
-use GuzzleHttp\Client as HttpClient;
+use PHPUnit_Framework_TestCase;
 use Rinvex\Authy\Token as AuthyToken;
 use Illuminate\Notifications\Notification;
+use \Rinvex\Authy\Response as AuthyResponse;
 use NotificationChannels\Authy\AuthyChannel;
 use NotificationChannels\Authy\AuthyMessage;
+use GuzzleHttp\Psr7\Response as HttpResponse;
 
-class ChannelTest extends TestCase
+class ChannelTest extends PHPUnit_Framework_TestCase
 {
     /** @test */
     public function it_can_send_a_notification()
     {
-        $this->app['config']->set('services.authy.secret', 'AuthySecretKey');
+        // Prepare Responses
+        $httpResponse = new HttpResponse(200, [], json_encode(['success' => true]));
+        $authyResponse = new AuthyResponse($httpResponse);
 
-        $client = Mockery::mock(HttpClient::class);
-        $url = 'https://api.authy.com/protected/json/sms/12345';
-        $response = new Response(200, [], json_encode(['success' => true]));
-        $params = [
-            'http_errors' => false,
-            'headers'     => ['X-Authy-API-Key' => 'AuthySecretKey'],
-            'query'       => [
-                'force'         => false,
-                'action'        => null,
-                'actionMessage' => null,
-            ],
-        ];
-        $client->shouldReceive('get')
+        // Mock Authy Token
+        $authyToken = Mockery::mock(AuthyToken::class);
+        $authyToken->shouldReceive('send')
                ->once()
-               ->with($url, $params)
-               ->andReturn($response);
+               ->with(12345, 'sms', false, null, null)
+               ->andReturn($authyResponse);
 
-        $authyToken = new AuthyToken($client, config('services.authy.secret'));
+        // Send Notification
         $channel = new AuthyChannel($authyToken);
         $result = $channel->send(new TestNotifiable(), new TestNotification());
 
