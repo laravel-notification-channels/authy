@@ -37,7 +37,7 @@
         }
     ],
     "require": {
-        "php": "^7.0.0",
+        "php": "^7.1.0",
         "illuminate/queue": "~5.4.0|~5.5.0",
         "rinvex/laravel-authy": "dev-develop",
         "roave/security-advisories": "dev-master",
