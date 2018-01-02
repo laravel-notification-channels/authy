@@ -40,6 +40,7 @@
         "php": "^7.0.0",
         "illuminate/queue": "~5.4.0|~5.5.0",
         "rinvex/laravel-authy": "dev-develop",
+        "roave/security-advisories": "dev-master",
         "illuminate/notifications": "~5.4.0|~5.5.0"
     },
     "require-dev": {
