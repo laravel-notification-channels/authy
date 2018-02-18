@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v3.0.0] - 2018-02-18
+- Require PHP v7.1.3
+- Update supplementary files
+- Update composer dependencies
+- Drop Laravel 5.4 / 5.5 support
+- Add Laravel v5.6 support
+
 ## [v2.0.0] - 2016-12-20
 - Drop LTS support
 - Update Code Style
@@ -30,6 +37,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v0.0.1 - 2016-10-15
 - Commit first draft
 
+[v3.0.0]: https://github.com/laravel-notification-channels/authy/compare/v2.0.0...v3.0.0
 [v2.0.0]: https://github.com/laravel-notification-channels/authy/compare/v1.0.0...v2.0.0
 [v1.0.0]: https://github.com/laravel-notification-channels/authy/compare/v0.0.5...v1.0.0
 [v0.0.5]: https://github.com/laravel-notification-channels/authy/compare/v0.0.4...v0.0.5
