@@ -1,13 +1,12 @@
 <?php
 
-declare(strict_types=1);
 
 namespace NotificationChannels\Authy\Test;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use NotificationChannels\Authy\AuthyMessage;
 
-class MessageTest extends PHPUnit_Framework_TestCase
+class MessageTest extends TestCase
 {
     /** @var \NotificationChannels\Authy\AuthyMessage */
     protected $message;

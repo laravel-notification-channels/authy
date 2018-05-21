@@ -1,11 +1,10 @@
 <?php
 
-declare(strict_types=1);
 
 namespace NotificationChannels\Authy\Test;
 
 use Mockery;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Rinvex\Authy\Token as AuthyToken;
 use Illuminate\Notifications\Notification;
 use Rinvex\Authy\Response as AuthyResponse;
@@ -13,7 +12,7 @@ use NotificationChannels\Authy\AuthyChannel;
 use NotificationChannels\Authy\AuthyMessage;
 use GuzzleHttp\Psr7\Response as HttpResponse;
 
-class ChannelTest extends PHPUnit_Framework_TestCase
+class ChannelTest extends TestCase
 {
     /** @test */
     public function it_can_send_a_notification()
