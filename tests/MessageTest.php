@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace NotificationChannels\Authy\Test;
 
@@ -11,7 +12,7 @@ class MessageTest extends TestCase
     /** @var \NotificationChannels\Authy\AuthyMessage */
     protected $message;
 
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
 
