@@ -1,13 +1,17 @@
 language: php
 
 php:
-  - 7.0
   - 7.1
+  - 7.2
 
 env:
   matrix:
     - COMPOSER_FLAGS="--prefer-lowest"
     - COMPOSER_FLAGS=""
+
+cache:
+  directories:
+    - $HOME/.composer/cache
 
 before_script:
   - travis_retry composer self-update
@@ -21,6 +25,7 @@ after_script:
   - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
 
 notifications:
+  email: false
   slack:
     rooms:
       - secure: v4jMVi7XqbYp3J8Nk8TJKjEVFLO1FfODYPkpvIJXQplqXR1UlYp8OkWkw10yUOUrAEiRu0wpDvvghI2PQdn6N9MIY4ODwtEZu5O3IoeJpn8n5D5JJQIR7jbCQuSZox/JPbX/wxichPvYRanqisBrGfWDQIZd+tidjO0HvXsKZ+IKySSGMvD7LoKk0RxbrsHyqpS6tpk+N3nK4jxtpFqXN6ZgQBVVnSORJBDluWaSLpKu89piiqum7IkIzxbKZQE9uXYvQ6XjggjSYUFl3gPactEyfq1H+8oDwacjiKK/PGb53bbs57hu3M3232yBmpHZrCLQP7jmULcN2GgsvxsCYgjJxU48ztDkLZPdQFy8YeHRSFRQ30Knt/PpwPC5p2AgJMdqx3O4DBiIYo3WhfeY5vtlTMuTzZWI9DyR4tX2RlU4lILicn7+5wUGudht3pu3lPEIVHXBCOH0yS7uRYjawZWqA6B4scMACc+dXVh2hM6adxPJzKvuyX+hHm77DeqW2jJX7P5rQGGkziP1dWMwdT1aWk9AVOu0wr5Rzc3M5RiiDv0cfZDi3Jpc0cTUNPRlzAV1s1Sc/XZIhzwVzsqMZS286wT8394UgZ+totsUL++FgZRJdGp42BBFBu+FawfSeLGP9B3RTwlpejgMat2EZ5Z4jKga4Tc0kpxfpfPifG8=

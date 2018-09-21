@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v3.0.1] - 2018-09-22
+- Update travis php versions and disable travis email notifications
+- Drop StyleCI multi-language support (paid feature now!)
+- Clean file headers
+- Add missing dev package
+- Update old PHPUnit code
+- Update composer dependencies
+- Update StyleCI and Travis options
+- 
+
 ## [v3.0.0] - 2018-02-18
 - Require PHP v7.1.3
 - Update supplementary files
@@ -37,6 +47,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v0.0.1 - 2016-10-15
 - Commit first draft
 
+[v3.0.1]: https://github.com/laravel-notification-channels/authy/compare/v3.0.0...v3.0.1
 [v3.0.0]: https://github.com/laravel-notification-channels/authy/compare/v2.0.0...v3.0.0
 [v2.0.0]: https://github.com/laravel-notification-channels/authy/compare/v1.0.0...v2.0.0
 [v1.0.0]: https://github.com/laravel-notification-channels/authy/compare/v0.0.5...v1.0.0
