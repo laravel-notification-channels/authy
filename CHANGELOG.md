@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v1.0.0] - 2018-10-01
+- Enforce Consistency
+- Support Laravel 5.7+
+
 ## [v3.0.1] - 2018-09-22
 - Update travis php versions and disable travis email notifications
 - Drop StyleCI multi-language support (paid feature now!)
