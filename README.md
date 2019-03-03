@@ -34,7 +34,7 @@
     composer require laravel-notification-channels/authy
     ```
 
-2. This package requires [`rinvex/laravel-authy`](https://github.com/rinvex/laravel-authy) package, so before proceeding make sure to followup it's [installation](https://github.com/rinvex/laravel-authy#installation) steps first.
+2. This package requires [`rinvex/laravel-authy`](https://github.com/rinvex/laravel-authy) package, so before proceeding make sure to follow up its [installation](https://github.com/rinvex/laravel-authy#installation) steps first.
 
 3. Next, to route Authy notifications to the proper entity, define a `routeNotificationForAuthy` method on your notifiable entity. This should return the **Authy Id** to which the notification should be sent. Example:
 
@@ -176,7 +176,7 @@ Refer to the [Changelog](CHANGELOG.md) for a full history of the project.
 
 The following support channels are available at your fingertips:
 
-- [Chat on Slack](http://chat.rinvex.com)
+- [Chat on Slack](https://bit.ly/rinvex-slack)
 - [Help on Email](mailto:help@rinvex.com)
 - [Follow on Twitter](https://twitter.com/rinvex)
 
