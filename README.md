@@ -3,11 +3,8 @@
 [Authy](https://www.authy.com) notification channel for [Laravel](https://laravel.com), with the ability to send in-app, sms, and call verification tokens.
 
 [![Packagist](https://img.shields.io/packagist/v/laravel-notification-channels/authy.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/laravel-notification-channels/authy)
-[![VersionEye Dependencies](https://img.shields.io/versioneye/d/php/laravel-notification-channels:authy.svg?label=Dependencies&style=flat-square)](https://www.versioneye.com/php/laravel-notification-channels:authy/)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/laravel-notification-channels/authy.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/authy/)
-[![Code Climate](https://img.shields.io/codeclimate/github/laravel-notification-channels/authy.svg?label=CodeClimate&style=flat-square)](https://codeclimate.com/github/laravel-notification-channels/authy)
 [![StyleCI](https://styleci.io/repos/70840210/shield?branch=master)](https://styleci.io/repos/70840210)
-[![SensioLabs Insight](https://img.shields.io/sensiolabs/i/9fb954b8-d059-4198-bab9-8f8acb09ae4a.svg?label=SensioLabs&style=flat-square)](https://insight.sensiolabs.com/projects/9fb954b8-d059-4198-bab9-8f8acb09ae4a)
 [![Travis](https://img.shields.io/travis/laravel-notification-channels/authy.svg?style=flat-square)](https://travis-ci.org/laravel-notification-channels/authy)
 [![License](https://img.shields.io/packagist/l/laravel-notification-channels/authy.svg?label=License&style=flat-square)](https://github.com/laravel-notification-channels/authy/blob/develop/LICENSE)
 
@@ -214,4 +211,4 @@ Rinvex is a software solutions startup, specialized in integrated enterprise sol
 
 This software is released under [The MIT License (MIT)](LICENSE).
 
-(c) 2016-2017 Rinvex LLC, Some rights reserved.
+(c) 2016-2020 Rinvex LLC, Some rights reserved.
