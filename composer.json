@@ -39,13 +39,13 @@
     ],
     "require": {
         "php": "^7.2.0",
-        "illuminate/queue": "~5.8.0",
-        "rinvex/laravel-authy": "v5.0.0",
-        "illuminate/notifications": "~5.8.0"
+        "illuminate/queue": "^6.0.0",
+        "rinvex/laravel-authy": "v6.0.0",
+        "illuminate/notifications": "^6.0.0"
     },
     "require-dev": {
         "codedungeon/phpunit-result-printer": "^0.26.0",
-        "phpunit/phpunit": "^8.1.0",
+        "phpunit/phpunit": "^8.3.0",
         "mockery/mockery": "^1.2.0"
     },
     "autoload": {
