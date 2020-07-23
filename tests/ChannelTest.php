@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace NotificationChannels\Authy\Test;
 
-use Mockery;
-use PHPUnit\Framework\TestCase;
-use Rinvex\Authy\Token as AuthyToken;
+use GuzzleHttp\Psr7\Response as HttpResponse;
 use Illuminate\Notifications\Notification;
-use Rinvex\Authy\Response as AuthyResponse;
+use Mockery;
 use NotificationChannels\Authy\AuthyChannel;
 use NotificationChannels\Authy\AuthyMessage;
-use GuzzleHttp\Psr7\Response as HttpResponse;
+use PHPUnit\Framework\TestCase;
+use Rinvex\Authy\Response as AuthyResponse;
+use Rinvex\Authy\Token as AuthyToken;
 
 class ChannelTest extends TestCase
 {
