@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v7.0.1] - 2020-07-23
+- Fix dependency version constrain (fixes #25)
+- Remove default indent size config
+
 ## [v7.0.0] - 2020-03-15
 - Upgrade to Laravel v7.1.x & PHP v7.4.x
 
@@ -65,6 +69,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v0.0.1 - 2016-10-15
 - Commit first draft
 
+[v7.0.1]: https://github.com/laravel-notification-channels/authy/compare/v7.0.0...v7.0.1
 [v7.0.0]: https://github.com/laravel-notification-channels/authy/compare/v6.0.0...v7.0.0
 [v6.0.0]: https://github.com/laravel-notification-channels/authy/compare/v5.1.0...v6.0.0
 [v5.1.0]: https://github.com/laravel-notification-channels/authy/compare/v5.0.0...v5.1.0

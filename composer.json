@@ -40,7 +40,7 @@
     "require": {
         "php": "^7.4.0",
         "illuminate/queue": "^7.0.0",
-        "rinvex/laravel-authy": "v7.0.0",
+        "rinvex/laravel-authy": "^7.0.0",
         "illuminate/notifications": "^7.0.0"
     },
     "require-dev": {
