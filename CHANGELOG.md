@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v9.0.0] - 2021-08-22
+- Drop PHP v7 support
+- 
 ## [v8.0.1] - 2020-12-25
 - Add support for PHP v8
 
@@ -75,6 +78,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v0.0.1 - 2016-10-15
 - Commit first draft
 
+[v9.0.0]: https://github.com/laravel-notification-channels/authy/compare/v8.0.1...v9.0.0
 [v8.0.1]: https://github.com/laravel-notification-channels/authy/compare/v8.0.0...v8.0.1
 [v8.0.0]: https://github.com/laravel-notification-channels/authy/compare/v7.0.1...v8.0.0
 [v7.0.1]: https://github.com/laravel-notification-channels/authy/compare/v7.0.0...v7.0.1
