@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace NotificationChannels\Authy\Test;
 
-use NotificationChannels\Authy\AuthyMessage;
 use PHPUnit\Framework\TestCase;
+use NotificationChannels\Authy\AuthyMessage;
 
 class MessageTest extends TestCase
 {
