@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace NotificationChannels\Authy;
 
-use Illuminate\Notifications\Notification;
 use Rinvex\Authy\Token as AuthyToken;
+use Illuminate\Notifications\Notification;
 
 class AuthyChannel
 {
