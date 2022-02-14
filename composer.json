@@ -39,8 +39,8 @@
     ],
     "require": {
         "php": "^8.0.0",
-        "illuminate/queue": "^8.0.0 || ^9.0.0",
-        "illuminate/notifications": "^8.0.0 || ^9.0.0",
+        "illuminate/queue": "^9.0.0 || ^10.0.0",
+        "illuminate/notifications": "^9.0.0 || ^10.0.0",
         "rinvex/laravel-authy": "^9.0.0"
     },
     "require-dev": {
