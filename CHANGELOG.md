@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 
+## [v10.0.0] - 2023-01-09
+- Drop PHP v8.0 support and update composer dependencies
+
 ## [v9.1.0] - 2022-02-14
 - Update composer dependencies to Laravel v9
 
@@ -81,6 +84,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## v0.0.1 - 2016-10-15
 - Commit first draft
 
+[v10.0.0]: https://github.com/laravel-notification-channels/authy/compare/v9.1.0...v10.0.0
 [v9.1.0]: https://github.com/laravel-notification-channels/authy/compare/v9.0.0...v9.1.0
 [v9.0.0]: https://github.com/laravel-notification-channels/authy/compare/v8.0.1...v9.0.0
 [v8.0.1]: https://github.com/laravel-notification-channels/authy/compare/v8.0.0...v8.0.1
